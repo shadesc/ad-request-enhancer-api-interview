@@ -47,11 +47,10 @@ Runs integration tests (using mocha,chai and supertest)
 ## Test with higher concurrency and check latency: 200 request with 20 concurrent
 > ab -p latency-test-request-body.txt -T application/json -c 20 -n 200 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
-> Output
-
-> Time per request: 348.634 [ms] (mean)
-
-> Time per request: 17.432 [ms] (mean, across all concurrent requests)
+> **Output**<br>
+Time taken for tests: 3.486 seconds <br>
+Time per request: 348.634 [ms] (mean)<br>
+Time per request: 17.432 [ms] (mean, across all concurrent requests)
 
 ➔ **348.634 ms** This is the average amount of time it took for a concurrent group of requests to process. Ie: (sum of ms of 20 requests)/20
 
@@ -60,12 +59,11 @@ Runs integration tests (using mocha,chai and supertest)
 
 ## Can app runs average of 50 requests per second over extended period of time?
 
-> Try using 10000 requests with 50 running concurrently
+**Tried using 10000 requests with 50 running concurrently**
 
 > ab -p latency-test-request-body.txt -T application/json -c 50 -n 10000 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
-> Output
-
-> Requests per second: 43.01 [#/sec] (mean)
+> **Output** <br>
+Requests per second: 43.01 [#/sec] (mean)
 
 ➔ On average it is 43req/sec which is not too far from 50. I ran this same test 5 times and it ranged between 43 and 48.2. Keep in mind there are factors that play a role for example the PC that you are using, its cpu, rams, gpu or not etc…
