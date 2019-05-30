@@ -32,17 +32,19 @@ Runs integration tests (using mocha,chai and supertest)
 ### Stop pm2 clusters
 > npm run stop-pm2
 
-### Benchmarking using Apache benchmark
-- Test for 1 request
+# Benchmarking using Apache benchmark
+
+## Test for 1 request
 > ab -p latency-test-request-body.txt -T application/json -c 1 -n 1 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
 ➔ (My tests) Got on average, time is 246.587ms ie < 500ms
-- Test with some more concurrency: 100 request with 8 concurent at a time
+
+## Test with some more concurrency: 100 request with 8 concurent at a time
 > ab -p latency-test-request-body.txt -T application/json -c 8 -n 100 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
 ➔ (My tests) Got on average for 100 requests, running 8 at a time, the time per request is 214.135ms ie < 500ms
 
-- Test with higher concurrency and check latency: 200 request with 20 concurrent
+## Test with higher concurrency and check latency: 200 request with 20 concurrent
 > ab -p latency-test-request-body.txt -T application/json -c 20 -n 200 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
 > Output
@@ -56,7 +58,7 @@ Runs integration tests (using mocha,chai and supertest)
 ➔ **17.432ms** This tells you the average time it took a single request to process by itself. We have 200 request and time take for test: 3.486 seconds (3486ms).
 >3486ms/200 ~= 17.43 ms
 
-- Can app runs average of 50 requests per second over extended period of time?
+## Can app runs average of 50 requests per second over extended period of time?
 
 > Try using 10000 requests with 50 running concurrently
 
