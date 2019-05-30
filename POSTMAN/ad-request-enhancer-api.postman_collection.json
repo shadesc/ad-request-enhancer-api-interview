@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "4d2b9378-6a13-4909-8487-a72d7d90c8a0",
+		"name": "ad-request-enhancer-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch-Ad",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"site\": {\r\n\t\t\"id\": \"foo123\",\r\n\t\t\"page\": \"http://www.foo.com/why-foo\"\r\n\t},\r\n\t\"device\": {\r\n\t\t\"ip\": \"69.250.196.118\"\r\n\t},\r\n\t\"user\": {\r\n\t\t\"id\": \"9cb89r\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/ad/dispatch",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ad",
+						"dispatch"
+					]
+				},
+				"description": "Send accurate request body, enhance add and get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "modify-plugins-runtime",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"geo\":0\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/plugins/change-runtime-plugins",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"plugins",
+						"change-runtime-plugins"
+					]
+				},
+				"description": "Send accurate request body, enhance add and get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "display-enabled-plugins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/plugins/list-installed-plugins",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"plugins",
+						"list-installed-plugins"
+					]
+				},
+				"description": "Send accurate request body, enhance add and get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch-Ad-Non-US-IP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"site\": {\r\n\t\t\"id\": \"foo123\",\r\n\t\t\"page\": \"http://www.foo.com/why-foo\"\r\n\t},\r\n\t\"device\": {\r\n\t\t\"ip\": \"200.122.123.124\"\r\n\t},\r\n\t\"user\": {\r\n\t\t\"id\": \"9cb89r\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/ad/dispatch",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ad",
+						"dispatch"
+					]
+				},
+				"description": "Send request with an IP that is non US. Should halt transaction and return error 403 validation error - Not a US IP"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch-Ad-Missing-Site-ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"site\": {\r\n\t\t\"page\": \"http://www.foo.com/why-foo\"\r\n\t},\r\n\t\"device\": {\r\n\t\t\"ip\": \"69.250.196.118\"\r\n\t},\r\n\t\"user\": {\r\n\t\t\"id\": \"9cb89r\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/ad/dispatch",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ad",
+						"dispatch"
+					]
+				},
+				"description": "Send request missing site id. Should return error 403 validation error - id is required"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch-Ad-Missing-Site",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"device\": {\r\n\t\t\"ip\": \"69.250.196.118\"\r\n\t},\r\n\t\"user\": {\r\n\t\t\"id\": \"9cb89r\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/ad/dispatch",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ad",
+						"dispatch"
+					]
+				},
+				"description": "Send ad request with body missing site. Should return 500 internal server error."
+			},
+			"response": []
+		}
+	]
+}
