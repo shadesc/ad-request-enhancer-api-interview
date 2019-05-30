@@ -1,6 +1,6 @@
-# Interview Project Assignment - Advertisement Request Enhancer
-Presented by: Chadi Cortbaoui
-### A NodeJS API to enrich Incoming Advertisement requests - Presented as part of an interview process
+# Advertisement Request Enhancer - Interview Project Assignment 
+Presented by - [Chadi Cortbaoui](https://www.linkedin.com/in/chadicortbaoui/)
+### A NodeJS API to enrich Incoming Advertisement requests - Presented as part of an interview process in 2019
 - NodeJS
 - Express
 - Validation of **request** and **response** using [@hapi/joi](https://github.com/hapijs/joi)
