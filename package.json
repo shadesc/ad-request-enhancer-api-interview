@@ -1,0 +1,50 @@
+{
+  "name": "ad-request-enhancer-api-interview",
+  "version": "1.0.0",
+  "description": "A NodeJS API to enrich Ads requests - Presented as part of an interview in 2019",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lint && pm2 start ./ad-request-enhancer-api/index.js -i 0",
+    "test": "cross-env NODE_ENV=test mocha ./ad-request-enhancer-api/**/*.test.js",
+    "test-watch": "nodemon --exec \"npm test\"",
+    "lint": "eslint ./ad-request-enhancer-api/**/*.js --ignore-pattern **/*.test.js",
+    "stop-pm2": "pm2 delete index",
+    "start-no-clustering": "nodemon ./ad-request-enhancer-api/index.js --exec \"npm run lint && node\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadesc/ad-request-enhancer-api-interview.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Chadi Cortbaoui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadesc/ad-request-enhancer-api-interview/issues"
+  },
+  "homepage": "https://github.com/shadesc/ad-request-enhancer-api-interview#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.0.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-rate-limit": "^3.5.0",
+    "express-status-monitor": "^1.2.5",
+    "geoip-lite": "^1.3.7",
+    "helmet": "^3.18.0",
+    "ip": "^1.1.5",
+    "public-ip": "^3.1.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0",
+    "sinon": "^7.3.2",
+    "supertest": "^4.0.2"
+  }
+}

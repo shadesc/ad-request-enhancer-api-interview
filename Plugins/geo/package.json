@@ -1,0 +1,11 @@
+{
+  "name": "geo",
+  "version": "1.0.0",
+  "description": "Local npm module (simulation) to get geo location using maxmind",
+  "main": "geo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chadi Cortbaoui",
+  "license": "ISC"
+}
