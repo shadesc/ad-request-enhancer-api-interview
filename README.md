@@ -1,6 +1,7 @@
 # Advertisement Request Enhancer - Interview Project Assignment 
 Presented by - [Chadi Cortbaoui](https://www.linkedin.com/in/chadicortbaoui/)
-### A NodeJS API to enrich Incoming Advertisement requests - Presented as part of an interview process in 2019
+### A NodeJS API to enrich Incoming Advertisement requests
+#### Presented as part of an interview process in 2019
 - NodeJS
 - Express
 - Validation of **request** and **response** using [@hapi/joi](https://github.com/hapijs/joi)
@@ -37,14 +38,14 @@ Runs integration tests (using mocha,chai and supertest)
 ## Test for 1 request
 > ab -p latency-test-request-body.txt -T application/json -c 1 -n 1 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
-➔ (My tests) Got on average, time is 246.587ms ie < 500ms
+➔ (My tests) Got on average: time = 246.587ms ie < 500ms
 
-## Test with some more concurrency: 100 request with 8 concurent at a time
+## Test with some more concurrency: 100 requests with 8 concurent at a time
 > ab -p latency-test-request-body.txt -T application/json -c 8 -n 100 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
-➔ (My tests) Got on average for 100 requests, running 8 at a time, the time per request is 214.135ms ie < 500ms
+➔ (My tests) For 100 requests - running 8 at a time - the average time per request is 214.135ms ie < 500ms
 
-## Test with higher concurrency and check latency: 200 request with 20 concurrent
+## Test with higher concurrency and check latency: 200 requests with 20 concurrent
 > ab -p latency-test-request-body.txt -T application/json -c 20 -n 200 -k -H "Accept-Encoding: gzip, deflate" http://localhost:3000/ad/dispatch
 
 > **Output**<br>
@@ -54,10 +55,10 @@ Time per request: 17.432 [ms] (mean, across all concurrent requests)
 
 ➔ **348.634 ms** This is the average amount of time it took for a concurrent group of requests to process. Ie: (sum of ms of 20 requests)/20
 
-➔ **17.432ms** This tells you the average time it took a single request to process by itself. We have 200 request and time take for test: 3.486 seconds (3486ms).
+➔ **17.432ms** This tells you the average time it took a single request to process by itself. We have 200 requests and time taken for test: 3.486 seconds (3486ms).
 >3486ms/200 ~= 17.43 ms
 
-## Can app runs average of 50 requests per second over extended period of time?
+## Can this API run an average of 50 requests per second over an extended period of time?
 
 **Tried using 10000 requests with 50 running concurrently**
 
@@ -66,4 +67,4 @@ Time per request: 17.432 [ms] (mean, across all concurrent requests)
 > **Output** <br>
 Requests per second: 43.01 [#/sec] (mean)
 
-➔ On average it is 43req/sec which is not too far from 50. I ran this same test 5 times and it ranged between 43 and 48.2. Keep in mind there are factors that play a role for example the PC that you are using, its cpu, rams, gpu or not etc…
+➔ On average it is 43 requests / second which is not too far from 50. **I ran this same test 5 times** and it ranged between **43** and **48.2** . Keep in mind there are several side factors that play a role in the process; for example the device that you are using, its cpu, rams, gpu or not etc…
