@@ -1,7 +1,7 @@
 {
   "name": "ad-request-enhancer-api-interview",
   "version": "1.0.0",
-  "description": "A NodeJS API to enrich Ads requests - Presented as part of an interview in 2019",
+  "description": "A NodeJS API to enrich Ads requests - Presented as part of an interview in 2018",
   "main": "index.js",
   "scripts": {
     "start": "npm run lint && pm2 start ./ad-request-enhancer-api/index.js -i 0",
