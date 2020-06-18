@@ -1,5 +1,5 @@
 # Advertisement Request Enhancer - Interview Project Assignment 
-Presented by - [Chadi Cortbaoui](https://www.linkedin.com/in/chadicortbaoui/)
+
 ### A NodeJS API to enrich Incoming Advertisement requests
 #### Presented as part of an interview process in 2018
 - NodeJS
