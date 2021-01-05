@@ -26,7 +26,7 @@
   "homepage": "https://github.com/shadesc/ad-request-enhancer-api-interview#readme",
   "dependencies": {
     "@hapi/joi": "^15.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
